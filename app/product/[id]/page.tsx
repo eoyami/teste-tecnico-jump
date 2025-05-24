@@ -2,28 +2,31 @@
 import React from 'react'
 import { FaHome } from "react-icons/fa";
 import Image from 'next/image'
-import { useParams } from 'next/navigation'; 
+import { useParams } from 'next/navigation';
+import data from '@/app/mockup/produtos';
 
 
-  async function getProduct(id: string) {
-    const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-    if (!res.ok) return null;
-    return res.json();
-  }
+//   async function getProduct(id: string) {
+//     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+//     if (!res.ok) return null;
+//     return res.json();
+//   }
 
-const page = async () => {
-  const params = useParams();
-  const id = params.id as string;
-  const product = await getProduct(id);
-  const price = product.price;
-  const pricePlus100 = price + 100;
-  const discount = (price + 100) - price;
+const page = () => {
+    const products = data
+    const params = useParams();
+    const id = params.id as string;
+    const idNumber = parseInt(id)
+//   const product = await getProduct(id);
+    const product = products[idNumber - 1]
+    const price = product.price;
+    const pricePlus100 = price + 100;
+    const discount = (price + 100) - price;
 
-  
   return (
-    <div className='container flex-col justify-center items-center mx-auto p-4 h-full'>
-            <div className='flex flex-col items-center h-full md:items-start bg-white rounded-md p-4 my-2 justify-start'>
-                <div>
+    <div className='container flex-col justify-center items-center mx-auto'>
+            <div className='flex flex-col md:items-start bg-white rounded-md p-4 my-2 justify-center'>
+                <div className='flex justify-start'>
                     <a href="/">
                         <div className='flex items-center p-1 text-lg font-bold text-center bg-blue-500 text-white rounded-md'>
                             <FaHome/>
@@ -31,13 +34,13 @@ const page = async () => {
                         </div>
                     </a>
                 </div>
-                <div id='product-container' className='flex flex-col md:flex-row justify-center items-center'>
+                <div id='product-container' className='flex flex-col w-full md:flex-row items-center justify-between mt-2 md:mt-1'>
                     <div className='flex flex-col items-center justify-center w-full md:w-2/3 relative'>
                         <Image className='w-full md:max-w-80 md:max-h-90' src={product.image} alt={product.title} width={200} height={100} />
                     </div>
                     <div className='flex flex-col justify-end w-full md:w-1/3'>
-                        <h1 className='text-2xl font-bold text-black my-3'>{product.title.length > 20 ? product.title.slice(0, 50) + '...' : product.title}</h1>
-                        
+                        <h1 className='text-2xl font-bold text-black my-2'>{product.title.length > 20 ? product.title.slice(0, 50) + '...' : product.title}</h1>
+                        <h2 className='text-md font-bold text-black'>{product.category.toUpperCase().slice(0, 1) + product.category.slice(1, product.category.length)}</h2>
                         <div className='flex flex-col mt-3'>
                             <div className='flex flex-row gap-2 items-center'>
                                 <p className='text-lg text-gray-500'><del>{pricePlus100.toFixed(2)}</del></p>

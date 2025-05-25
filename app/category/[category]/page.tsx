@@ -1,14 +1,14 @@
 import CategoryWrapper from '@/app/components/CategoryWrapper';
 import CheckCategory from '@/app/components/CheckCategory';
 
-type ParamsProps = {
+interface ParamsProps {
   params: {
     category: string
   }
 }
 
-const page = async ({params}: ParamsProps) => {
-  const {category } = await params;
+const page = ({params}: ParamsProps) => {
+  const {category } = params;
 
   return (
     <div className='flex flex-wrap justify-start container mt-1'>

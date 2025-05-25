@@ -1,6 +1,4 @@
-import ImagemTeste from "../../public/imagem_teste.png"
-
-interface Products {
+export interface Products {
     id: number,
     title: string,
     price: number,
@@ -9,25 +7,19 @@ interface Products {
     image: string
 }
 
+// const data: Products[] = []
 
-interface ProductSpecial extends Products {
-    plan: 'premium'
-}
+// const items = 9
 
+// for(let x = 0; x < items; x++){
+//     data.push({
+//         id: x + 1,
+//         title: "Tênis de marca",
+//         price: 199.90,
+//         description: "Bolsa bem legal",
+//         category: "mens clothing",
+//         image: `${ImagemTeste.src}`
+//     })
+// }
 
-const data: Products[] = []
-
-const items = 9
-
-for(let x = 0; x < items; x++){
-    data.push({
-        id: x + 1,
-        title: "Tênis de marca",
-        price: 199.90,
-        description: "Bolsa bem legal",
-        category: "mens clothing",
-        image: `${ImagemTeste.src}`
-    })
-}
-
-export default data
+// export default data

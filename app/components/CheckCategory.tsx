@@ -1,6 +1,5 @@
 'use client'
 import { usePathname, useSearchParams, useRouter} from 'next/navigation'
-import { Products } from '../mockup/produtos'
 
 const CheckCategory = () => {
     const router = useRouter()
@@ -14,6 +13,7 @@ const CheckCategory = () => {
         }else{
             router.push(`/category/${value}`)
         }
+    }
   return (
     <>
     {pathname === '/category/all' ? (
@@ -45,6 +45,5 @@ const CheckCategory = () => {
     ) : null}
     </>
   )
-}
 }
 export default CheckCategory

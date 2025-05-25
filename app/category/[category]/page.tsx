@@ -7,7 +7,6 @@ type ParamsProps = {
   }
 }
 
-
 const page = async ({params}: ParamsProps) => {
   const {category } = await params;
 

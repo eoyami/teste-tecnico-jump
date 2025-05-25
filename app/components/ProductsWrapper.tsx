@@ -3,7 +3,6 @@ import type { Products as ProductType } from '../mockup/produtos'
 
 interface Props {
   category: string
-  products: ProductType[]
 }
 
 const ProductWrapper = async ({ category }: Props) => {

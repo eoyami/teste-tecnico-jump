@@ -1,19 +1,32 @@
-"use client"
 import React from 'react'
 import Image from 'next/image'
-import { useParams } from 'next/navigation';
+
+  interface Product {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    category: string;
+    image: string;
+  }
 
 
   async function getProduct(id: string) {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-    if (!res.ok) return null;
+    if (!res.ok) {
+        throw new Error('Failed to fetch product');
+    }
     return res.json();
   }
 
-const page = async () => {
-    const params = useParams();
+  type Params = {
+    params: {
+      id: string;
+    }
+  }
+  const page = async ({params}: Params) => {
     const id = params.id as string;
-  const product = await getProduct(id);
+    const product: Product = await getProduct(id);
     const price = product.price;
     const pricePlus100 = price + 100;
     const discount = (price + 100) - price;

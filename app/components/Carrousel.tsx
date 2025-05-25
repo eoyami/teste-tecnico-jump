@@ -20,7 +20,7 @@ const Carrousel = ({children, title}: CarrouselProps) => {
                 setShowArrows(true)
                 }} onMouseLeave={() => {
                     setShowArrows(false)
-                }} className='relative flex w-full justify-center bg-white rounded-md gap-1 min-h-[20rem]'>
+                }} className='relative flex w-full justify-center bg-white rounded-md gap-1'>
               {showArrows && (
                 <div  className='absolute top-[43%] -left-3 text-white text-xl z-10 arrow-left'><button className='bg-black rounded-full'><GoChevronLeft/></button></div>
               )}

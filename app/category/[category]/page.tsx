@@ -1,5 +1,5 @@
 import CategoryWrapper from '@/app/components/CategoryWrapper';
-
+import CheckCategory from '@/app/components/CheckCategory';
 
 type ParamsProps = {
   params: {
@@ -8,23 +8,20 @@ type ParamsProps = {
 }
 
 
-const page = ({params}: ParamsProps) => {
+const page = async ({params}: ParamsProps) => {
+  const {category } = await params;
 
   return (
     <div className='flex flex-wrap justify-start container mt-1'>
-        <div className='flex flex-wrap container justify-between bg-white p-2 rounded-md h-full'>
+        <div className='flex flex-wrap justify-between bg-white p-2 rounded-md h-full w-full'>
           <div className='bg-white w-full'>
-            <h2 className='text-xl text-black font-bold'>Categorias: </h2>
+            <h2 className='text-xl text-black font-bold'>Categoria(s): {category === 'all' ? 'Todas' : category}</h2>
           </div>
-            <div className='flex container justify-center bg-white rounded-md gap-1 w-full h-full'>
-              <div className='flex container w-full bg-white justify-center rounded-md gap-1'>
-                <div className='grid grid-cols-0 sm:grid-cols-0 md:grid-cols-1'>
-                  <div className='hidden md:flex border-gray border-2'>
-                    AQUI FICARÁ AS CHECKBOX
-                  </div>
-                </div>
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-                <CategoryWrapper category={params.category} />
+            <div className='flex justify-center bg-white rounded-md gap-1 w-full h-full'>
+              <div className='flex w-full bg-white justify-center md:justify-between rounded-md gap-0 md:gap-5'>
+                <CheckCategory />
+                <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-3 w-full'>
+                <CategoryWrapper category={category} />
                 </div>
               </div>
             </div>

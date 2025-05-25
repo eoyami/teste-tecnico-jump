@@ -1,6 +1,7 @@
 import React from 'react'
 import { Products } from '../mockup/produtos'
 import Category from './Category'
+
 interface Props {
     category: string
 }
@@ -13,7 +14,7 @@ const categoryMap: Record<string, string> = {
     "jewelery": "jewelery",
   };
 
-const CategoryWrapper = async ({category}: Props) => {
+  const CategoryWrapper = async ({category}: Props) => {
     const response = await fetch('https://fakestoreapi.com/products')
     const data: Products[] = await response.json()
     const normalizedUrl = categoryMap[category] || category

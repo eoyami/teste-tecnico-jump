@@ -1,17 +1,20 @@
 import CategoryWrapper from '@/app/components/CategoryWrapper';
 import CheckCategory from '@/app/components/CheckCategory';
 import categoryMap from '@/app/utils/categoryMap';
-
+import React from 'react';
 type Params = {
   params: {
     category: string;
   };
 };
 
-export const dynamicParams = true;
-
-const Page =  ({ params }: Params) => {
-  const category = params.category;
+const Page = async ({ params }: Params) => {
+  const { category } = await params;
+  const res = await fetch(`https://fakestoreapi.com/products/category/${category}`, {
+    next: {
+      revalidate: 60,
+    },
+  });
   if (!category) {
     return <div className='container flex justify-center items-center mt-10'>Categoria não encontrada</div>;
   }

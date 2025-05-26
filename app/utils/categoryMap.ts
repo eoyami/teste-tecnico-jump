@@ -6,6 +6,14 @@ const categoryMap: Record<string, string> = {
     "jewelery": "jewelery",
   };
 
+export const categoryProductMap: Record<string, string> = {
+    "all": "Todas",
+    "men's clothing": "Roupas Masculinas",
+    "women's clothing": "Roupas Masculinas",
+    "electronics": "Eletrônicos",
+    "jewelery": "Joias",
+  };
+
 export const translatedCategoryMap: Record<string, string> = {
     "all": "Todas",
     "mens-clothing": "Roupas Masculinas",

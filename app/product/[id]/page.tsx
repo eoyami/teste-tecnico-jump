@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import categoryMap, { categoryProductMap, translatedCategoryMap } from '@/app/utils/categoryMap';
 
   interface Product {
     id: number;
@@ -26,9 +27,14 @@ import Image from 'next/image'
   const page = async ({params}: any) => {
     const { id } = await params;
     const product: Product = await getProduct(id);
+    if (!product) {
+      return <div className='container flex justify-center items-center mt-10 text-red-500'>Produto não encontrado</div>;
+    }
+    const normalizedCategory = categoryProductMap[product.category];
     const price = product.price;
     const pricePlus100 = price + 100;
     const discount = (price + 100) - price;
+    console.log('Product:', normalizedCategory, product.category);
 
   return (
     <div className='container flex-col justify-center items-center mx-auto'>
@@ -39,7 +45,7 @@ import Image from 'next/image'
                     </div>
                     <div className='flex flex-col justify-end w-full md:w-1/3'>
                         <h1 className='text-2xl font-bold text-black my-2'>{product.title.length > 20 ? product.title.slice(0, 50) + '...' : product.title}</h1>
-                        <h2 className='text-md font-bold text-black'>{product.category.toUpperCase().slice(0, 1) + product.category.slice(1, product.category.length)}</h2>
+                        <h2 className='text-md font-bold text-black'>{normalizedCategory}</h2>
                         <div className='flex flex-col mt-3'>
                             <div className='flex flex-row gap-2 items-center'>
                                 <p className='text-lg text-gray-500'><del>{`R$${pricePlus100.toFixed(2).replace('.', ',')}`}</del></p>

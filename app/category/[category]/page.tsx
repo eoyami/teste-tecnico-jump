@@ -9,8 +9,8 @@ type PageProps = {
 };
 
 const Page = async ({ params }: PageProps) => {
-  const categoryParams =  params?.category;
-  const normalizedCategory = categoryMap[categoryParams] || categoryParams;
+  const { category } = await params;
+  const normalizedCategory = categoryMap[category] || category;
   return (
     <div className='flex flex-wrap justify-start container mt-1'>
         <div className='flex flex-wrap justify-between bg-white p-2 rounded-md h-full w-full'>

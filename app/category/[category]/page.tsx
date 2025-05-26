@@ -1,16 +1,16 @@
 import CategoryWrapper from '@/app/components/CategoryWrapper';
 import CheckCategory from '@/app/components/CheckCategory';
+import categoryMap from '@/app/utils/categoryMap';
 
-interface ParamsProps {
+type PageProps = {
   params: {
-    category: string
-  }
-}
-import { categoryMap } from '@/app/components/CategoryWrapper';
+    category: string;
+  };
+};
 
-const Page = ({params}: ParamsProps) => {
-  const category = params.category;
-  const normalizedCategory = categoryMap[category] || category;
+const Page = async ({ params }: PageProps) => {
+  const categoryParams =  params?.category;
+  const normalizedCategory = categoryMap[categoryParams] || categoryParams;
   return (
     <div className='flex flex-wrap justify-start container mt-1'>
         <div className='flex flex-wrap justify-between bg-white p-2 rounded-md h-full w-full'>
@@ -21,7 +21,7 @@ const Page = ({params}: ParamsProps) => {
               <div className='flex w-full bg-white justify-center md:justify-between rounded-md gap-0 md:gap-5'>
                 <CheckCategory />
                 <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 w-full'>
-                <CategoryWrapper category={category} />
+                <CategoryWrapper category={normalizedCategory} />
                 </div>
               </div>
             </div>
@@ -31,3 +31,15 @@ const Page = ({params}: ParamsProps) => {
 }
 
 export default Page
+
+
+// 👇 Adicione isto no mesmo arquivo
+export async function generateStaticParams() {
+  return [
+    { category: 'all' },
+    { category: 'mens-clothing' },
+    { category: 'womens-clothing' },
+    { category: 'electronics' },
+    { category: 'jewelery' },
+  ];
+}

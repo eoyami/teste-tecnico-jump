@@ -21,8 +21,6 @@ const Carrousel = ({children, title}: CarrouselProps) => {
     console.log(containerRef.current.scrollLeft)
   }
 
-
-
   const updateArrowsVisibility = () => {
     if(!containerRef.current) return
     const { scrollLeft, scrollWidth, clientWidth } = containerRef.current

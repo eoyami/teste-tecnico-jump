@@ -1,18 +1,11 @@
 import React from 'react'
 import { Products } from '../mockup/produtos'
 import Category from './Category'
+import categoryMap from '../utils/categoryMap'
 
 interface Props {
     category: string,
 }
-
-export const categoryMap: Record<string, string> = {
-    "all": "all",
-    "mens-clothing": "men's clothing",
-    "womens-clothing": "women's clothing",
-    "electronics": "electronics",
-    "jewelery": "jewelery",
-  };
 
   const CategoryWrapper = async ({category}: Props) => {
     const response = await fetch('https://fakestoreapi.com/products')

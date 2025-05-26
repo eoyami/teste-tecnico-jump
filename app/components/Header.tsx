@@ -61,23 +61,28 @@ const Header = () => {
                           <li className='text-black text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline'>
                             Roupa Masculina
                           </li>
-                          </Link>
-                          <Link onClick={() => {setIsMenuMobileOpen(false)}} href={`/category/womens-clothing`}>
-                            <li className='text-black text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline'>
-                                Roupa Feminina
-                            </li>
-                          </Link>
-                          <Link onClick={() => {setIsMenuMobileOpen(false)}} href={`/category/electronics`}>
-                            <li className='text-black text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline'>
-                                Eletrônicos
-                            </li>
-                          </Link>
-                          <Link onClick={() => {setIsMenuMobileOpen(false)}} href={`/category/jewelery`}>
+                        </Link>
+                        <Link onClick={() => {setIsMenuMobileOpen(false)}} href={`/category/womens-clothing`}>
+                          <li className='text-black text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline'>
+                              Roupa Feminina
+                          </li>
+                        </Link>
+                        <Link onClick={() => {setIsMenuMobileOpen(false)}} href={`/category/electronics`}>
+                          <li className='text-black text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline'>
+                            Eletrônicos
+                          </li>
+                        </Link>
+                        <Link onClick={() => {setIsMenuMobileOpen(false)}} href={`/category/jewelery`}>
                           <li className='text-black text-black font-bold'>
                             Bijuteria
                           </li>
-                          </Link>
-                        </ul>
+                        </Link>
+                        <Link onClick={() => {setIsMenuMobileOpen(false)}} href={`/category/all`}>
+                          <li className='text-black text-black font-bold'>
+                            Todas as categorias
+                          </li>
+                        </Link>
+                      </ul>
                   </div>
                 )
               }
@@ -95,7 +100,7 @@ const Header = () => {
                 </li>
             </Link>
             <li onMouseOver={() => {setIsMenuDropdownOpen(true)}} onMouseOut={() => {setIsMenuDropdownOpen(false)}} className="inline-block relative border-b-2 border-blue-500 p-2 z-10 hover:bg-blue-600 hover:rounded-bl-none hover:rounded-br-none text-black hover:text-white">
-              <Link href="/category/all" className="font-bold">Categorias</Link>
+              <div className="font-bold">Categorias</div>
               {
                 isMenuDropdownOpen && (
                   <div className="absolute top-10 left-0 p-2 rounded-md bg-blue-600 z-20 dropdown w-48 rounded-tl-none">
@@ -104,22 +109,27 @@ const Header = () => {
                   <li className='font-bold rounded-tl rounded-tr hover:bg-white hover:text-black'>
                     Roupa Masculina
                   </li>
-                  </Link>
-                  <Link href={`/category/womens-clothing`}>
-                    <li className='font-bold hover:bg-white hover:text-black'>
-                        Roupa Feminina
-                    </li>
-                  </Link>
-                  <Link href={`/category/electronics`}>
-                    <li className='font-bold rounded-bl rounded-br hover:bg-white hover:text-black'>
-                        Eletrônicos
-                    </li>
-                  </Link>
-                  <Link href={`/category/jewelery`}>
+                </Link>
+                <Link href={`/category/womens-clothing`}>
+                  <li className='font-bold hover:bg-white hover:text-black'>
+                    Roupa Feminina
+                  </li>
+                </Link>
+                <Link href={`/category/electronics`}>
+                  <li className='font-bold rounded-bl rounded-br hover:bg-white hover:text-black'>
+                    Eletrônicos
+                  </li>
+                </Link>
+                <Link href={`/category/jewelery`}>
                   <li className='font-bold rounded-bl rounded-br hover:bg-white hover:text-black'>
                     Bijuteria
                   </li>
-                  </Link>
+                </Link>
+                <Link href={`/category/all`}>
+                  <li className='font-bold rounded-bl rounded-br hover:bg-white hover:text-black'>
+                    Todas as categorias
+                  </li>
+                </Link>
                 </ul>
               </div>
                 )

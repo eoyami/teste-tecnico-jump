@@ -9,12 +9,7 @@ type Params = {
 };
 
 const page = async ({ params }: Params) => {
-  const { category } = await params;
-  const res = await fetch(`https://fakestoreapi.com/products/category/${category}`, {
-    next: {
-      revalidate: 60,
-    },
-  });
+  const category = params.category;
   if (!category) {
     return <div className='container flex justify-center items-center mt-10'>Categoria não encontrada</div>;
   }

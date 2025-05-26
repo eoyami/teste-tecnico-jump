@@ -34,7 +34,7 @@ import Image from 'next/image'
     <div className='container flex-col justify-center items-center mx-auto'>
             <div key={product.id} className='flex flex-col md:items-start bg-white rounded-md p-4 my-2 justify-center'>
                 <div id='product-container' className='flex flex-col w-full md:flex-row items-center justify-between mt-2 md:mt-1'>
-                    <div className='flex flex-col items-center justify-center w-full md:w-2/3 relative'>
+                    <div className='flex flex-col items-center justify-center w-full md:w-2/3 relative'>  
                         <Image className='md:max-w-80 md:max-h-90' src={product.image} alt={product.title} width={200} height={100} />
                     </div>
                     <div className='flex flex-col justify-end w-full md:w-1/3'>

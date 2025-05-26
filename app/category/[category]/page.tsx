@@ -8,7 +8,7 @@ type Params = {
   };
 };
 
-const Page = async ({ params }: Params) => {
+const page = async ({ params }: Params) => {
   const { category } = await params;
   const res = await fetch(`https://fakestoreapi.com/products/category/${category}`, {
     next: {
@@ -38,15 +38,15 @@ const Page = async ({ params }: Params) => {
   )
 }
 
-export default Page
+export default page
 
 
-export async function generateStaticParams() {
-  return [
-    { category: 'all' },
-    { category: 'mens-clothing' },
-    { category: 'womens-clothing' },
-    { category: 'electronics' },
-    { category: 'jewelery' },
-  ];
-}
+// export async function generateStaticParams() {
+//   return [
+//     { category: 'all' },
+//     { category: 'mens-clothing' },
+//     { category: 'womens-clothing' },
+//     { category: 'electronics' },
+//     { category: 'jewelery' },
+//   ];
+// }

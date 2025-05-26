@@ -30,7 +30,7 @@ const Header = () => {
   }
     return (
     <>
-    <div className="flex w-full mb-1 bg-white rounded-b-md p-2">
+    <header className="flex w-full mb-1 bg-white rounded-b-md p-2">
         <div className="relative flex items-center justify-between w-full">
         {
           pathname !== '/' ? (
@@ -43,7 +43,7 @@ const Header = () => {
         </div>
           ) : null
         }
-        <h1 className="text-3xl text-center font-bold text-black"><a href="/">Loja da Jump</a></h1>
+        <Link href={`/`}><h1 className="text-3xl text-center font-bold text-black">Loja da Jump</h1></Link>
         <div className='flex w-max justify-end md:hidden'>
             <button className="text-black text-3xl z-30" onClick={handleMenuMobile}>
                   {isMenuMobileOpen ? <IoClose /> : <IoMenu />}
@@ -148,7 +148,7 @@ const Header = () => {
           </ul>
         </nav>
         </div>
-      </div>
+      </header>
       <HeroSection />
     </>
   )

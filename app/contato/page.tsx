@@ -14,32 +14,32 @@ const Contato = () => {
             <input className="w-full p-2 rounded-md border-2 border-gray-300" type="tel" placeholder="Telefone" />
             <label htmlFor="mensagem">Mensagem</label>
             <textarea className="w-full p-2 rounded-md border-2 border-gray-300 h-20 min-h-20 max-h-60" placeholder="Escreva sua mensagem aqui" />
-            <button className="bg-blue-500 text-white p-2 rounded-md w-full">Enviar</button>
+            <button className="bg-primary text-white p-2 rounded-md w-full">Enviar</button>
         </form>
         </div>
         <div className="flex flex-col  items-center justify-center md:flex-row gap-2 w-full border-2 border-gray-300 rounded-md p-2 mt-2">
             <h2 className="text-lg font-bold">Outras formas de contato:</h2>
         <p>
           <span className="font-bold">Whatsapp:</span>
-          <a href="https://wa.me/5511999999999" className="text-blue-500">
+          <a href="https://wa.me/5511999999999" className="text-primary">
             (11) 99999-9999
           </a>
         </p>
         <p>
           <span className="font-bold">Email:</span>
-          <a href="mailto:contato@example.com" className="text-blue-500">
+          <a href="mailto:contato@example.com" className="text-primary">
             contato@example.com
           </a>
         </p>
         <p>
           <span className="font-bold">Instagram:</span>
-          <a href="https://www.instagram.com/example" className="text-blue-500">
+          <a href="https://www.instagram.com/example" className="text-primary">
             @example
           </a>
         </p>
         <p>
           <span className="font-bold">Facebook:</span>
-          <a href="https://www.facebook.com/example" className="text-blue-500">
+          <a href="https://www.facebook.com/example" className="text-primary">
             @example
           </a>
         </p>

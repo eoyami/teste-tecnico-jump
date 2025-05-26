@@ -1,25 +1,27 @@
 import CategoryWrapper from '@/app/components/CategoryWrapper';
 import CheckCategory from '@/app/components/CheckCategory';
-import categoryMap from '@/app/utils/categoryMap';
+import categoryMap, { translatedCategoryMap } from '@/app/utils/categoryMap';
 import React from 'react';
-
-// type Params = {
-//   params: {
-//     slug: string;
-//   };
-// };
 
 const page = async ({ params }: any) => {
   const { slug } = await params;
+  const normalizedCategory = categoryMap[slug];
   if (!slug) {
-    return <div className='container flex justify-center items-center mt-10'>Categoria não encontrada</div>;
+    return <div className='container flex justify-center items-center mt-10 text-red-500'>Categoria não encontrada</div>;
   }
-  const normalizedCategory = categoryMap[slug] || slug;
+  if (!normalizedCategory) {
+    return <div className='container flex justify-center items-center mt-10 text-red-500'>Categoria não encontrada</div>;
+  }
+  const translatedCategory = translatedCategoryMap[slug];
+  if (!translatedCategory) {
+    return <div className='container flex justify-center items-center mt-10 text-red-500'>Categoria não encontrada</div>;
+  }
+  
   return (
     <div className='flex flex-wrap justify-start container mt-1'>
         <div className='flex flex-wrap justify-between bg-white p-2 rounded-md h-full w-full'>
           <div className='bg-white w-full'>
-            <h2 className='text-xl text-black font-bold'>Categoria(s): {normalizedCategory === 'all' ? 'Todas' : normalizedCategory}</h2>
+            <h2 className='text-xl text-black font-bold'>Categoria(s): {translatedCategory}</h2>
           </div>
             <div className='flex justify-center bg-white rounded-md gap-1 w-full h-full'>
               <div className='flex w-full bg-white justify-center md:justify-between rounded-md gap-0 md:gap-5'>

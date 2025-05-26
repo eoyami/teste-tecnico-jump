@@ -25,7 +25,8 @@ const Carrousel = ({children, title}: CarrouselProps) => {
     if(!containerRef.current) return
     const { scrollLeft, scrollWidth, clientWidth } = containerRef.current
     setCanScrollLeft(scrollLeft > 0)
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth)
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1)
+    console.log(scrollLeft, scrollWidth, clientWidth)
   }
 
   useEffect(() => {

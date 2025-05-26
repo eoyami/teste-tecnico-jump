@@ -24,7 +24,7 @@ import Image from 'next/image'
   //   }
   // }
   const page = async ({params}: any) => {
-    const id = params.id as string;
+    const { id } = await params;
     const product: Product = await getProduct(id);
     const price = product.price;
     const pricePlus100 = price + 100;
@@ -48,6 +48,10 @@ import Image from 'next/image'
                             <p className='text-2xl font-bold text-black my-3'>R${price.toFixed(2).replace('.', ',')}</p>
                         </div>
                         <div className='flex flex-col gap-2'>
+                        <div>
+                          <label htmlFor='qntd' className='text-black mr-2'>Quantidade</label>
+                          <input type="number" name='qntd' className='text-black border-2 border-gray-300 rounded-md p-1 text-lg text-center' defaultValue={1} min={1} max={10} />
+                        </div>
                         <button className='text-lg text-white bg-green-500 rounded-md p-2 hover:bg-green-600'>Comprar</button>
                         <button className='text-lg text-white bg-gray-500 rounded-md p-2 hover:bg-gray-600'>Adicionar ao carrinho</button>
                         </div>

@@ -18,7 +18,7 @@ const Products = ({products}: Props) => {
               <h1 className='text-xl font-bold text-black text-center min-h-[56px] max-h-[56px]'>{product.title.length > 20 ? product.title.slice(0, 25) + "..." : product.title}</h1>
               <div className='flex justify-center w-full'>
               <del className='text-gray-500'><p className='text-sm md:text-lg font-bold text-center rounded-md px-1 text-gray-500'>R$ {product.price.toFixed(2).replace('.', ',')}</p></del>
-                <p className='text-md md:text-lg font-bold text-black bg-green-600 rounded-md px-1 text-white'>R$ {product.price.toFixed(2).replace('.', ',')}</p>
+                <p className='text-md md:text-lg font-bold text-black bg-primary rounded-md px-1 text-white'>R$ {product.price.toFixed(2).replace('.', ',')}</p>
               </div>
         </Link>
         ))}

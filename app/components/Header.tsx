@@ -37,39 +37,39 @@ const Header = () => {
           pathname !== '/' ? (
             <div className='flex md:hidden justify-start'>
             <a href="/">
-                <div className='flex items-center p-1 text-lg font-bold text-center bg-blue-500 text-white rounded-md'>
+                <div className='flex items-center p-1 text-lg font-bold text-center bg-primary text-white rounded-md'>
                     <FaHome/>
                 </div>
             </a>
         </div>
           ) : null
         }
-        <Link href={`/`}><h1 className="text-3xl text-center font-bold text-black">Loja da Jump</h1></Link>
+        <Link href={`/`}><h1 className="text-3xl text-center font-bold text-primary">Loja da Jump</h1></Link>
         <div className='flex w-max justify-end md:hidden'>
             <button className="text-black text-3xl z-30" onClick={handleMenuMobile}>
                   {isMenuMobileOpen ? <IoClose /> : <IoMenu />}
                 </button>
                 {isMenuMobileOpen && (
                   <div className="absolute top-full left-0 mt-1 w-full bg-white text-white flex flex-col gap-2 z-20 p-2 rounded-b-md animate-slide-down">
-                    <Link href="/" onClick={() => {setIsMenuMobileOpen(false)}} className="text-black font-bold hover:text-blue-600 border-b-2 border-blue-600">Início</Link>
-                    <div className="relative text-black font-bold border-b-2 border-blue-600 hover:text-blue-600">
+                    <Link href="/" onClick={() => {setIsMenuMobileOpen(false)}} className="text-black font-bold hover:text-primary border-b-2 border-primary">Início</Link>
+                    <div className="relative text-black font-bold border-b-2 border-primary hover:text-primary">
               <Link href="#" onClick={() => {setIsMenuDropdownOpenMobile(!isMenuDropdownOpenMobile)}}>Categorias</Link>
               {
                 isMenuDropdownOpenMobile && (
                       <div className="inline-block top-10 left-0 p-2 rounded-md bg-white z-20 dropdown w-48 rounded-tl-none w-full animate-slide-down">
                         <ul className="flex flex-col">
                         <Link onClick={() => {setIsMenuMobileOpen(false)}} href={`/category/mens-clothing`}>
-                          <li className='text-black text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline'>
+                          <li className='text-black text-black font-bold border-b-2 border-primary hover:text-primary hover:underline'>
                             Roupa Masculina
                           </li>
                         </Link>
                         <Link onClick={() => {setIsMenuMobileOpen(false)}} href={`/category/womens-clothing`}>
-                          <li className='text-black text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline'>
+                          <li className='text-black text-black font-bold border-b-2 border-primary hover:text-primary hover:underline'>
                               Roupa Feminina
                           </li>
                         </Link>
                         <Link onClick={() => {setIsMenuMobileOpen(false)}} href={`/category/electronics`}>
-                          <li className='text-black text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline'>
+                          <li className='text-black text-black font-bold border-b-2 border-primary hover:text-primary hover:underline'>
                             Eletrônicos
                           </li>
                         </Link>
@@ -88,23 +88,23 @@ const Header = () => {
                 )
               }
             </div>
-                    <Link href="/" onClick={() => {setIsMenuMobileOpen(false)}} className="text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline">Promoções</Link>
-                    <Link href="/contato" onClick={() => {setIsMenuMobileOpen(false)}} className="text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline">Contato</Link>
+                    <Link href="/" onClick={() => {setIsMenuMobileOpen(false)}} className="text-black font-bold border-b-2 border-primary hover:text-primary hover:underline">Promoções</Link>
+                    <Link href="/contato" onClick={() => {setIsMenuMobileOpen(false)}} className="text-black font-bold border-b-2 border-primary hover:text-primary hover:underline">Contato</Link>
                   </div>
                 )}
         </div>
         <nav className="hidden md:flex flex items-center justify-center">
           <ul className="flex gap-3">
             <Link href="/">
-                <li className="border-b-2 font-bold border-blue-500 p-2 z-10 hover:bg-blue-600 hover:rounded-bl-none hover:rounded-br-none text-black hover:text-white">
+                <li className="border-b-2 font-bold border-primary p-2 z-10 hover:bg-primary hover:rounded-bl-none hover:rounded-br-none text-black hover:text-white">
                     Início
                 </li>
             </Link>
-            <li onMouseOver={() => {setIsMenuDropdownOpen(true)}} onMouseOut={() => {setIsMenuDropdownOpen(false)}} className="inline-block relative border-b-2 border-blue-500 p-2 z-10 hover:bg-blue-600 hover:rounded-bl-none hover:rounded-br-none text-black hover:text-white">
+            <li onMouseOver={() => {setIsMenuDropdownOpen(true)}} onMouseOut={() => {setIsMenuDropdownOpen(false)}} className="inline-block relative border-b-2 border-primary p-2 z-10 hover:bg-primary hover:rounded-bl-none hover:rounded-br-none text-black hover:text-white">
               <div className="font-bold">Categorias</div>
               {
                 isMenuDropdownOpen && (
-                  <div className="absolute top-10 left-0 p-2 rounded-md bg-blue-600 z-20 dropdown w-48 rounded-tl-none">
+                  <div className="absolute top-10 left-0 p-2 rounded-md bg-primary z-20 dropdown w-48 rounded-tl-none">
                 <ul className="flex flex-col">
                 <Link href={`/category/mens-clothing`}>
                   <li className='font-bold rounded-tl rounded-tr hover:bg-white hover:text-black'>
@@ -137,12 +137,12 @@ const Header = () => {
               }
             </li>
             <Link href="/">
-              <li className="font-bold border-b-2 border-blue-500 p-2 z-10 hover:bg-blue-600 hover:rounded-bl-none hover:rounded-br-none text-black hover:text-white">
+              <li className="font-bold border-b-2 border-primary p-2 z-10 hover:bg-primary hover:rounded-bl-none hover:rounded-br-none text-black hover:text-white">
                 Promoções
               </li>
             </Link>
             <Link href="/contato">
-              <li className="font-bold border-b-2 border-blue-500 p-2 z-10 hover:bg-blue-600 hover:rounded-bl-none hover:rounded-br-none text-black hover:text-white">
+              <li className="font-bold border-b-2 border-primary p-2 z-10 hover:bg-primary hover:rounded-bl-none hover:rounded-br-none text-black hover:text-white">
                 Contato
               </li>
             </Link>

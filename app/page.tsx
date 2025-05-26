@@ -2,7 +2,7 @@ import Carrousel from "./components/Carrousel";
 import ProductWrapper from "./components/ProductsWrapper";
 export default function Home() {
   return (
-    <div className="flex flex-col w-full">
+    <main className="flex flex-col w-full">
       <Carrousel title="Destaques">
         <ProductWrapper category="all"/>
       </Carrousel>
@@ -18,6 +18,6 @@ export default function Home() {
       <Carrousel title="Eletrônicos">
         <ProductWrapper category="electronics"/>
       </Carrousel>
-    </div>
+    </main>
   )
 }

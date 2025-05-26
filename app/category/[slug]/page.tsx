@@ -3,13 +3,13 @@ import CheckCategory from '@/app/components/CheckCategory';
 import categoryMap from '@/app/utils/categoryMap';
 import React from 'react';
 
-type Params = {
-  params: {
-    slug: string;
-  };
-};
+// type Params = {
+//   params: {
+//     slug: string;
+//   };
+// };
 
-const Page = async ({ params }: Params) => {
+const page = async ({ params }: any) => {
   const { slug } = await params;
   if (!slug) {
     return <div className='container flex justify-center items-center mt-10'>Categoria não encontrada</div>;
@@ -34,4 +34,4 @@ const Page = async ({ params }: Params) => {
   )
 }
 
-export default Page
+export default page

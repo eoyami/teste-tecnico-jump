@@ -18,12 +18,12 @@ import Image from 'next/image'
     return res.json();
   }
 
-  type Params = {
-    params: {
-      id: string;
-    }
-  }
-  const page = async ({params}: Params) => {
+  // type Params = {
+  //   params: {
+  //     id: string;
+  //   }
+  // }
+  const page = async ({params}: any) => {
     const id = params.id as string;
     const product: Product = await getProduct(id);
     const price = product.price;

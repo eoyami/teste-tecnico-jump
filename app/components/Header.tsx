@@ -5,6 +5,7 @@ import HeroSection from './HeroSection'
 import { FaHome } from "react-icons/fa";
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
+
 const Header = () => {
   const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
   const [isMenuDropdownOpenMobile, setIsMenuDropdownOpenMobile] = useState(false);
@@ -50,7 +51,7 @@ const Header = () => {
                 </button>
                 {isMenuMobileOpen && (
                   <div className="absolute top-full left-0 mt-1 w-full bg-white text-white flex flex-col gap-2 z-20 p-2 rounded-b-md animate-slide-down">
-                    <Link href="/" className="text-black font-bold hover:text-blue-600 border-b-2 border-blue-600">Início</Link>
+                    <Link href="/" onClick={() => {setIsMenuMobileOpen(false)}} className="text-black font-bold hover:text-blue-600 border-b-2 border-blue-600">Início</Link>
                     <div className="relative text-black font-bold border-b-2 border-blue-600 hover:text-blue-600">
               <Link href="#" onClick={() => {setIsMenuDropdownOpenMobile(!isMenuDropdownOpenMobile)}}>Categorias</Link>
               {
@@ -87,8 +88,8 @@ const Header = () => {
                 )
               }
             </div>
-                    <a href="/" className="text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline">Promoções</a>
-                    <a href="/contato" className="text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline">Contato</a>
+                    <Link href="/" onClick={() => {setIsMenuMobileOpen(false)}} className="text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline">Promoções</Link>
+                    <Link href="/contato" onClick={() => {setIsMenuMobileOpen(false)}} className="text-black font-bold border-b-2 border-blue-600 hover:text-blue-600 hover:underline">Contato</Link>
                   </div>
                 )}
         </div>

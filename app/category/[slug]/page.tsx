@@ -5,16 +5,16 @@ import React from 'react';
 
 type Params = {
   params: {
-    category: string;
+    slug: string;
   };
 };
 
 const Page = async ({ params }: Params) => {
-  const { category } = await params;
-  if (!category) {
+  const { slug } = await params;
+  if (!slug) {
     return <div className='container flex justify-center items-center mt-10'>Categoria não encontrada</div>;
   }
-  const normalizedCategory = categoryMap[category] || category;
+  const normalizedCategory = categoryMap[slug] || slug;
   return (
     <div className='flex flex-wrap justify-start container mt-1'>
         <div className='flex flex-wrap justify-between bg-white p-2 rounded-md h-full w-full'>
@@ -35,14 +35,3 @@ const Page = async ({ params }: Params) => {
 }
 
 export default Page
-
-
-// export async function generateStaticParams() {
-//   return [
-//     { category: 'all' },
-//     { category: 'mens-clothing' },
-//     { category: 'womens-clothing' },
-//     { category: 'electronics' },
-//     { category: 'jewelery' },
-//   ];
-// }

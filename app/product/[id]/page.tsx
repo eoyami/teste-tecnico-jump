@@ -24,7 +24,7 @@ import Image from 'next/image'
     }
   }
   const page = async ({params}: Params) => {
-    const id = params.id as string;
+    const { id } = await params;
     const product: Product = await getProduct(id);
     const price = product.price;
     const pricePlus100 = price + 100;

@@ -3,10 +3,10 @@ import { Products } from '../mockup/produtos'
 import Category from './Category'
 
 interface Props {
-    category: string
+    category: string,
 }
 
-const categoryMap: Record<string, string> = {
+export const categoryMap: Record<string, string> = {
     "all": "all",
     "mens-clothing": "men's clothing",
     "womens-clothing": "women's clothing",

@@ -14,7 +14,7 @@ import Image from 'next/image'
   async function getProduct(id: string) {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
     if (!res.ok) {
-        throw new Error('Failed to fetch product');
+        throw new Error('deu erro!');
     }
     return res.json();
   }
@@ -43,10 +43,10 @@ import Image from 'next/image'
                         <h2 className='text-md font-bold text-black'>{product.category.toUpperCase().slice(0, 1) + product.category.slice(1, product.category.length)}</h2>
                         <div className='flex flex-col mt-3'>
                             <div className='flex flex-row gap-2 items-center'>
-                                <p className='text-lg text-gray-500'><del>{pricePlus100.toFixed(2)}</del></p>
-                                <p className='text-lg font-bold text-black bg-green-600 rounded-md p-1 text-white'>{`R$${discount.toFixed(0)} de desconto!`}</p>
+                                <p className='text-lg text-gray-500'><del>{`R$${pricePlus100.toFixed(2).replace('.', ',')}`}</del></p>
+                                <p className='text-lg font-bold text-black bg-green-600 rounded-md p-1 text-white'>{`R$${discount.toFixed(0).replace('.', ',')} de desconto!`}</p>
                             </div>
-                            <p className='text-2xl font-bold text-black my-3'>R${price.toFixed(2)}</p>
+                            <p className='text-2xl font-bold text-black my-3'>R${price.toFixed(2).replace('.', ',')}</p>
                         </div>
                         <div className='flex flex-col gap-2'>
                         <button className='text-lg text-white bg-green-500 rounded-md p-2 hover:bg-green-600'>Comprar</button>

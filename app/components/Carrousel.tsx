@@ -25,9 +25,9 @@ const Carrousel = ({children, title}: CarrouselProps) => {
 
   const updateArrowsVisibility = () => {
     if(!containerRef.current) return
-    const { scrollLeft, scrollWidth } = containerRef.current
+    const { scrollLeft, scrollWidth, clientWidth } = containerRef.current
     setCanScrollLeft(scrollLeft > 0)
-    setCanScrollRight(scrollLeft <= scrollWidth - 350)
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth)
   }
 
   useEffect(() => {

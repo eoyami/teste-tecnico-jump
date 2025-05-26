@@ -10,7 +10,6 @@ import Image from 'next/image'
     image: string;
   }
 
-
   async function getProduct(id: string) {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
     if (!res.ok) {

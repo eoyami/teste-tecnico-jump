@@ -2,14 +2,19 @@ import CategoryWrapper from '@/app/components/CategoryWrapper';
 import CheckCategory from '@/app/components/CheckCategory';
 import categoryMap from '@/app/utils/categoryMap';
 
-type PageProps = {
+type Params = {
   params: {
     category: string;
   };
 };
 
-const Page = async ({ params }: PageProps) => {
-  const { category } = await params;
+export const dynamicParams = true;
+
+const Page =  ({ params }: Params) => {
+  const category = params.category;
+  if (!category) {
+    return <div className='container flex justify-center items-center mt-10'>Categoria não encontrada</div>;
+  }
   const normalizedCategory = categoryMap[category] || category;
   return (
     <div className='flex flex-wrap justify-start container mt-1'>
@@ -33,7 +38,6 @@ const Page = async ({ params }: PageProps) => {
 export default Page
 
 
-// 👇 Adicione isto no mesmo arquivo
 export async function generateStaticParams() {
   return [
     { category: 'all' },
